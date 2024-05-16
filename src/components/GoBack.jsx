@@ -13,7 +13,7 @@ export default function GoBack() {
         <path
           d="M4.3418 0.885742L0.113895 5.11364L4.3418 9.34155"
           stroke="#7C5DFA"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </svg>
       <span className="text-[15px] font-bold leading-[15px]">Go back</span>
