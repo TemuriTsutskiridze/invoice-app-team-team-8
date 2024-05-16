@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import GoBack from "./components/GoBack";
-import AddInvoce from "./pages/AddInvoce";
+import AddInvoce from "./pages/AddInvoice";
 function App() {
   return (
     <>
