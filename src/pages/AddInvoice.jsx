@@ -1,11 +1,13 @@
 import { space } from "postcss/lib/list";
-import React from "react";
+import React, { useState } from "react";
 import CountryInput from "../components/CountryInput";
 import PostCodeInput from "../components/PostCodeInput";
 import CityInput from "../components/CityInput";
 import StreetAdress from "../components/StreetAdress";
 import Calendar from "/assets/icon-calendar.svg";
+import ArrowDown from "/assets/icon-arrow-down.svg";
 export default function AddInvoce() {
+  const [rotate, setRotate] = useState(false);
   return (
     <div className="">
       <div className="flex flex-col gap-[22px] mt-[26px]">
@@ -36,7 +38,7 @@ export default function AddInvoce() {
           htmlFor="input"
           className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px]"
         >
-          Client’s Name
+          Client's Name
           <input
             type="text"
             className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
@@ -46,7 +48,7 @@ export default function AddInvoce() {
           htmlFor="input"
           className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px]   "
         >
-          Client’s Email
+          Client's Email
           <input
             type="text"
             className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
@@ -64,13 +66,39 @@ export default function AddInvoce() {
           htmlFor="date"
           className="  text-[15px]  leading-[15px]  font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] "
         >
-          <div className="absolute h-full w-full flex items-center justify-end">
-            <img src={Calendar} alt="calendar logo" />
-          </div>
           Invoice Date
           <input
             type="date"
-            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold h-[48px] leading-[15px] tracking-[-0.25px] text-black px-[16px]"
+            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px]  py-[16px]  text-[15px] font-bold h-[48px] leading-[15px] tracking-[-0.25px] text-black px-[16px]"
+          />
+          <div className="absolute z-[2] right-[42px] top-[954px]">
+            <img src={Calendar} alt="calendar logo " className="z-[2]" />
+          </div>
+        </label>
+        <label
+          htmlFor="input"
+          className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3]   "
+        >
+          Payment Terms
+          <div className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] py-[16px]  text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black px-[16px] flex justify-end items-center h-[48px] ">
+            <div
+              className={`cursor-pointer [transition:500ms] ${
+                rotate ? "rotate-180" : ""
+              }`}
+              onClick={() => setRotate(!rotate)}
+            >
+              <img src={ArrowDown} alt="arrow-icon" />
+            </div>
+          </div>
+        </label>
+        <label
+          htmlFor="input"
+          className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px]   "
+        >
+          Project Description
+          <input
+            type="text"
+            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
           />
         </label>
       </form>
