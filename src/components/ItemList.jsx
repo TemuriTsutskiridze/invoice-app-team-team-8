@@ -2,8 +2,7 @@ import React from "react";
 import Bin from "/assets/icon-delete.svg";
 export default function ItemList() {
   return (
-    <div className="text-[#7E88C3] text-[18px] mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
-      Item List
+    <div className="text-[#7E88C3] text-[18px]  font-bold leading-[32px] tracking-[-0.375px]">
       <form className="flex flex-col gap-[22px] mt-[22px] sm:flex-row  sm:gap-[16px] md:gap-[24px] lg:gap-[32px]">
         <label
           htmlFor="input"

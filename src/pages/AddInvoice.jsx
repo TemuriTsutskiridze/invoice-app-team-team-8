@@ -104,7 +104,13 @@ export default function AddInvoce() {
         </label>
       </form>
       <div>
-        <ItemList />
+        <h2 className="text-[#7E88C3] text-[18px] mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
+          Item List
+        </h2>
+        <div className="flex flex-col gap-[50px] md:gap-[18px] lg:gap-[18px]">
+          <ItemList />
+          <ItemList />
+        </div>
       </div>
     </div>
   );
