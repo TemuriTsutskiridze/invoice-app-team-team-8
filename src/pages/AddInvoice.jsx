@@ -1,5 +1,5 @@
 import { space } from "postcss/lib/list";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CountryInput from "../components/CountryInput";
 import PostCodeInput from "../components/PostCodeInput";
 import CityInput from "../components/CityInput";
@@ -29,15 +29,19 @@ export default function AddInvoce() {
       </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <StreetAdress />
-        <div className="flex  justify-between">
-          <CityInput />
-          <PostCodeInput />
+        <div className="flex flex-col">
+          <div className="">
+            <CityInput />
+            <PostCodeInput />
+          </div>
+          <CountryInput />
         </div>
-        <CountryInput />
       </form>
-      <span className="text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-[#7C5DFA] mt-[100px]">
-        Bill To
-      </span>
+      <div className="mt-[106px]">
+        <span className="text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-[#7C5DFA] ">
+          Bill To
+        </span>
+      </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <label
           htmlFor="input"
@@ -118,7 +122,10 @@ export default function AddInvoce() {
       </div>
 
       <AddInvoiceBtn />
-      <div className="flex gap-[7px] mt-[88px] bg-white  sm:justify-between w-full">
+      {window.innerWidth <= 400 && (
+        <div className="bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.10)_100%)] h-[64px] w-full sticky"></div>
+      )}
+      <div className="flex gap-[7px] mt-[21px] bg-white  sm:justify-between w-full">
         <Discard />
         <div className="flex gap-[7px]">
           <SaveAsDraft />

@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="px-[24px] mt-[33px]">
+      <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px]">
         <GoBack />
         <AddInvoce />
       </div>

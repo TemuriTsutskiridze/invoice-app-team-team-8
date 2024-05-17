@@ -5,7 +5,7 @@ export default function PostCodeInput() {
     <>
       <label
         htmlFor="input"
-        className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px]   w-[45%]"
+        className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px]   "
       >
         Post Code
         <input
