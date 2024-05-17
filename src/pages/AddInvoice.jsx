@@ -7,6 +7,7 @@ import StreetAdress from "../components/StreetAdress";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
 import ItemList from "../components/ItemList";
+import AddInvoiceBtn from "../components/AddInvoiceBtn";
 export default function AddInvoce() {
   const [rotate, setRotate] = useState(false);
   return (
@@ -112,6 +113,7 @@ export default function AddInvoce() {
           <ItemList />
         </div>
       </div>
+      <AddInvoiceBtn />
     </div>
   );
 }
