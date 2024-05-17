@@ -6,6 +6,7 @@ import CityInput from "../components/CityInput";
 import StreetAdress from "../components/StreetAdress";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
+import ItemList from "../components/ItemList";
 export default function AddInvoce() {
   const [rotate, setRotate] = useState(false);
   return (
@@ -102,6 +103,9 @@ export default function AddInvoce() {
           />
         </label>
       </form>
+      <div>
+        <ItemList />
+      </div>
     </div>
   );
 }
