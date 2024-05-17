@@ -8,10 +8,13 @@ import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
 import ItemList from "../components/ItemList";
 import AddInvoiceBtn from "../components/AddInvoiceBtn";
+import Discard from "../components/Discard";
+import SaveAsDraft from "../components/SaveAsDraft";
+import SaveSend from "../components/SaveSend";
 export default function AddInvoce() {
   const [rotate, setRotate] = useState(false);
   return (
-    <div className="">
+    <div>
       <div className="flex flex-col gap-[22px] mt-[26px]">
         <div className="flex">
           <h2 className="text-[24px] font-bold leading-[32px] inline">Edit </h2>
@@ -113,7 +116,15 @@ export default function AddInvoce() {
           <ItemList />
         </div>
       </div>
+
       <AddInvoiceBtn />
+      <div className="flex gap-[7px] mt-[88px] bg-white  sm:justify-between w-full">
+        <Discard />
+        <div className="flex gap-[7px]">
+          <SaveAsDraft />
+          <SaveSend />
+        </div>
+      </div>
     </div>
   );
 }
