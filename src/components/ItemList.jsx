@@ -37,12 +37,9 @@ export default function ItemList() {
             />
           </label>
 
-          <label
-            htmlFor="div"
-            className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px] flex-1 min-w-[46px]"
-          >
+          <label className="text-[13px] font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] h-[48px] flex-1 min-w-[46px]">
             Total
-            <div className="text-[13px] font-medium tracking-[-0.1px] text-[#7E88C3] h-[48px] w-full border-bold flex py-[16px] px-[16px] items-center justify-between border-[1px] border-[solid] border-[black]">
+            <div className="text-[13px] font-medium tracking-[-0.1px] text-[#7E88C3] h-[48px] w-full  flex py-[16px] px-[16px] items-center justify-between   ">
               <span className="text-[#888EB0] text-[15px] font-bold leading-[15px] tracking-[-0.25px]">
                 400
               </span>

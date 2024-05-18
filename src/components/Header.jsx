@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Avatar from "/assets/image-avatar.jpg";
 import Moon from "/assets/icon-moon.svg";
+import Sun from "/assets/icon-sun.svg";
 export default function Header() {
+  const [isSun, setIsSun] = useState(false);
+
   return (
     <>
       <svg
@@ -31,7 +34,14 @@ export default function Header() {
         />
       </svg>
       <header className="h-[72px] bg-[#373B53] flex w-full  justify-end items-center ">
-        <img src={Moon} alt="moon" className="mr-[24px]" />
+        <div className="cursor-pointer" onClick={() => setIsSun(!isSun)}>
+          <img
+            src={isSun ? Sun : Moon}
+            alt="moon"
+            className="mr-[24px] cursor-pointer"
+          />
+        </div>
+
         <div className="h-full  bg-[#494E6E] w-[1px]"></div>
         <div className="  flex justify-center items-center w-[80px] h-full">
           <img
