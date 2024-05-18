@@ -29,8 +29,8 @@ export default function AddInvoce() {
       </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <StreetAdress />
-        <div className="flex flex-col">
-          <div className="">
+        <div className="flex flex-col gap-[45px] sm:flex-row">
+          <div className="flex gap-[16px] sm:gap-[20px]">
             <CityInput />
             <PostCodeInput />
           </div>
@@ -63,12 +63,13 @@ export default function AddInvoce() {
             className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
           />
         </label>
-
-        <div className="flex justify-between">
-          <CityInput />
-          <PostCodeInput />
+        <div className="flex flex-col gap-[45px] sm:flex-row">
+          <div className="flex w-[full] gap-[16px] sm:gap-[20px]">
+            <CityInput />
+            <PostCodeInput />
+          </div>
+          <CountryInput />
         </div>
-        <CountryInput />
       </form>
       <form className="flex flex-col gap-[45px] mt-[65px]">
         <label
