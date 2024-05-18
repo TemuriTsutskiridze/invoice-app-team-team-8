@@ -17,7 +17,9 @@ export default function AddInvoce() {
     <div>
       <div className="flex flex-col gap-[22px] mt-[26px]">
         <div className="flex">
-          <h2 className="text-[24px] font-bold leading-[32px] inline">Edit </h2>
+          <h2 className="text-[24px] font-bold leading-[32px] inline">
+            New Invoice
+          </h2>
           <span className="text-[#888EB0] text-[24px] font-bold leading-[32px] tracking-[-0.5px]">
             #<span className="text-black inline-flex">{"code"}</span>
           </span>
@@ -77,13 +79,17 @@ export default function AddInvoce() {
           className="  text-[15px]  leading-[15px]  font-medium tracking-[-0.1px] flex flex-col gap-[9px] text-[#7E88C3] "
         >
           Invoice Date
-          <input
-            type="date"
-            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px]  py-[16px]  text-[15px] font-bold h-[48px] leading-[15px] tracking-[-0.25px] text-black px-[16px]"
-          />
-          <div className="absolute z-[2] right-[42px] top-[954px]">
-            <img src={Calendar} alt="calendar logo " className="z-[2]" />
-          </div>
+          <label className="flex justify-end items-center ">
+            <img
+              src={Calendar}
+              alt="calendar logo "
+              className="z-[2] absolute right-[35px]"
+            />
+            <input
+              type="date"
+              className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px]  py-[16px]  text-[15px] font-bold h-[48px] leading-[15px] tracking-[-0.25px] text-black px-[16px] w-full "
+            />
+          </label>
         </label>
         <label
           htmlFor="input"
