@@ -2,9 +2,7 @@ import React, { useCallback, useState } from "react";
 import Avatar from "/assets/image-avatar.jpg";
 import Moon from "/assets/icon-moon.svg";
 import Sun from "/assets/icon-sun.svg";
-export default function Header() {
-  const [isSun, setIsSun] = useState(false);
-
+export default function Header({ darkMode, setMode }) {
   return (
     <>
       <svg
@@ -34,9 +32,9 @@ export default function Header() {
         />
       </svg>
       <header className="h-[72px] bg-[#373B53] flex w-full  justify-end items-center ">
-        <div className="cursor-pointer" onClick={() => setIsSun(!isSun)}>
+        <div className="cursor-pointer" onClick={() => setMode()}>
           <img
-            src={isSun ? Sun : Moon}
+            src={darkMode ? Sun : Moon}
             alt="moon"
             className="mr-[24px] cursor-pointer"
           />
