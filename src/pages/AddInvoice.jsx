@@ -29,7 +29,7 @@ export default function AddInvoce() {
       </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <StreetAdress />
-        <div className="flex flex-col gap-[45px] sm:flex-row">
+        <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
           <div className="flex gap-[16px] sm:gap-[20px]">
             <CityInput />
             <PostCodeInput />
