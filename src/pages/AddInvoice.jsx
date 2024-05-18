@@ -20,9 +20,9 @@ export default function AddInvoce() {
           <h2 className="text-[24px] font-bold leading-[32px] inline">
             New Invoice
           </h2>
-          <span className="text-[#888EB0] text-[24px] font-bold leading-[32px] tracking-[-0.5px]">
+          {/* <span className="text-[#888EB0] text-[24px] font-bold leading-[32px] tracking-[-0.5px]">
             #<span className="text-black inline-flex">{"code"}</span>
-          </span>
+          </span> */}
         </div>
 
         <span className="text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-[#7C5DFA]">

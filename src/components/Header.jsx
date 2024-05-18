@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <>
       <svg
-        className="fixed"
+        className="absolute rounded-br-[15px]"
         xmlns="http://www.w3.org/2000/svg"
         width="72"
         height="72"
