@@ -13,14 +13,16 @@ function App() {
     setDarkMode(!darkMode);
   }
   return (
-    <>
+    <div className={darkMode ? "bg-[#141625]" : ""}>
       <Header darkMode={darkMode} setMode={setMode} />
       <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px]">
-        <GoBack />
-        <AddInvoice />
+        <GoBack darkMode={darkMode} />
+
+        <AddInvoice darkMode={darkMode} />
+
         <EditInvoice />
       </div>
-    </>
+    </div>
   );
 }
 

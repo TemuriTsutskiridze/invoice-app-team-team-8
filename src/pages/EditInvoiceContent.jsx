@@ -6,9 +6,22 @@ import ItemList from "../components/ItemList";
 import CityInput from "../components/CityInput";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export default function CreateInvoiceContent() {
   const [rotate, setRotate] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div>
       <form className="mt-[24px] flex flex-col gap-[45px]">

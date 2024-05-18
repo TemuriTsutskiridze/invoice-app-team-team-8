@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function GoBack() {
+export default function GoBack({ darkMode }) {
   return (
     <div className="flex gap-[24px]">
       <svg
@@ -16,7 +16,13 @@ export default function GoBack() {
           strokeWidth="2"
         />
       </svg>
-      <span className="text-[15px] font-bold leading-[15px]">Go back</span>
+      <span
+        className={`text-[15px] font-bold leading-[15px] ${
+          darkMode && "text-white"
+        }`}
+      >
+        Go back
+      </span>
     </div>
   );
 }

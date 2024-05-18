@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StreetAdress() {
+export default function StreetAdress({ darkMode }) {
   return (
     <>
       <label
@@ -10,7 +10,11 @@ export default function StreetAdress() {
         Street Address
         <input
           type="text"
-          className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
+          className={` border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] ${
+            darkMode
+              ? "text-white border-[1px]  border-[var(--04,#252945)] bg-[var(--03,_#1E2139)]"
+              : "text-black"
+          }   `}
         />
       </label>
     </>

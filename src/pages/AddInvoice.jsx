@@ -11,13 +11,30 @@ import AddInvoiceBtn from "../components/AddItemBtn";
 import Discard from "../components/Discard";
 import SaveAsDraft from "../components/SaveAsDraft";
 import SaveSend from "../components/SaveSend";
-export default function AddInvoice() {
+export default function AddInvoice({ darkMode }) {
   const [rotate, setRotate] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
-    <div>
+    <div className="">
       <div className="flex flex-col gap-[22px] mt-[26px]">
         <div className="flex">
-          <h2 className="text-[24px] font-bold leading-[32px] inline">
+          <h2
+            className={`text-[24px] font-bold leading-[32px] inline ${
+              darkMode ? "text-white" : ""
+            }`}
+          >
             New Invoice
           </h2>
         </div>
@@ -27,13 +44,13 @@ export default function AddInvoice() {
         </span>
       </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
-        <StreetAdress />
+        <StreetAdress darkMode={darkMode} />
         <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
           <div className="flex gap-[16px] sm:gap-[20px] w-full">
-            <CityInput />
-            <PostCodeInput />
+            <CityInput darkMode={darkMode} />
+            <PostCodeInput darkMode={darkMode} />
           </div>
-          <CountryInput />
+          <CountryInput darkMode={darkMode} />
         </div>
       </form>
       <div className="mt-[106px]">
@@ -49,7 +66,11 @@ export default function AddInvoice() {
           Client's Name
           <input
             type="text"
-            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
+            className={` border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] ${
+              darkMode
+                ? "text-white border-[1px]  border-[var(--04,#252945)] bg-[var(--03,_#1E2139)]"
+                : "text-black"
+            }   `}
           />
         </label>
         <label
@@ -59,15 +80,19 @@ export default function AddInvoice() {
           Client's Email
           <input
             type="text"
-            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
+            className={` border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] ${
+              darkMode
+                ? "text-white border-[1px]  border-[var(--04,#252945)] bg-[var(--03,_#1E2139)]"
+                : "text-black"
+            }   `}
           />
         </label>
         <div className="flex flex-col gap-[45px] sm:flex-row">
           <div className="flex w-[full] gap-[16px] sm:gap-[20px]">
-            <CityInput />
-            <PostCodeInput />
+            <CityInput darkMode={darkMode} />
+            <PostCodeInput darkMode={darkMode} />
           </div>
-          <CountryInput />
+          <CountryInput darkMode={darkMode} />
         </div>
       </form>
       <form className="flex flex-col gap-[45px] mt-[65px]">
@@ -84,7 +109,11 @@ export default function AddInvoice() {
             />
             <input
               type="date"
-              className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px]  py-[16px]  text-[15px] font-bold h-[48px] leading-[15px] tracking-[-0.25px] text-black px-[16px] w-full "
+              className={` border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] w-full ${
+                darkMode
+                  ? "text-white border-[1px]  border-[var(--04,#252945)] bg-[var(--03,_#1E2139)]"
+                  : "text-black"
+              }   `}
             />
           </label>
         </label>
@@ -111,7 +140,11 @@ export default function AddInvoice() {
           Project Description
           <input
             type="text"
-            className=" border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-black"
+            className={` border-[var(--05,#DFE3FA)] rounded-[4px] border-[1px] pr-[0] py-[15px] pl-[20px] text-[15px] font-bold leading-[15px] tracking-[-0.25px] ${
+              darkMode
+                ? "text-white border-[1px]  border-[var(--04,#252945)] bg-[var(--03,_#1E2139)]"
+                : "text-black"
+            }   `}
           />
         </label>
       </form>
@@ -120,18 +153,22 @@ export default function AddInvoice() {
           Item List
         </h2>
         <div className="flex flex-col gap-[50px] md:gap-[18px] lg:gap-[18px]">
-          <ItemList />
-          <ItemList />
+          <ItemList darkMode={darkMode} />
+          <ItemList darkMode={darkMode} />
         </div>
       </div>
 
-      <AddInvoiceBtn />
+      <AddInvoiceBtn darkMode={darkMode} />
 
-      <div className="flex gap-[7px] mt-[21px] bg-white  sm:justify-between w-full">
+      <div
+        className={`flex gap-[7px] mt-[21px] bg-white  sm:justify-between w-full h-[91px] items-center absolute left-0 justify-center ${
+          darkMode && window.innerWidth < 400 ? "bg-[#1E2139]" : "bg-[#141625]"
+        }`}
+      >
         <Discard />
         <div className="flex gap-[7px]">
-          <SaveAsDraft />
-          <SaveSend />
+          <SaveAsDraft darkMode={darkMode} />
+          <SaveSend darkMode={darkMode} />
         </div>
       </div>
     </div>
