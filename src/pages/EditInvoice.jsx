@@ -1,7 +1,7 @@
 import EditInvoiceContent from "./EditInvoiceContent";
 import AddItemBtn from "../components/AddItemBtn";
 import { useState, useEffect } from "react";
-export default function EditInvoice() {
+export default function EditInvoice({ darkMode }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -33,16 +33,24 @@ export default function EditInvoice() {
           Bill From
         </span>
       </div>
-      <EditInvoiceContent />
-      <AddItemBtn />
+      <EditInvoiceContent darkMode={darkMode} />
+      <AddItemBtn darkMode={darkMode} />
       <div className="absolute w-[100%] left-0">
         {windowWidth <= 600 && (
           <div className="bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.10)_100%)] h-[64px]  w-full"></div>
         )}
       </div>
 
-      <div className="flex  mt-[88px] sm:mt-[47px] bg-white  w-full justify-end gap-[7px]">
-        <button className="h-[48px] rounded-[24px] bg-[#F9FAFE] text-[#7E88C3] text-[15px] font-bold leading-[15px] tracking-[-0.25px] flex justify-center items-center py-[15px] px-[25px]">
+      <div
+        className={`flex gap-[7px] mt-[21px] bg-white   w-full h-[91px] items-center absolute left-0 justify-end  sm:px-[56px] ${
+          darkMode ? "bg-[#1E2139]" : "bg-white"
+        }`}
+      >
+        <button
+          className={`h-[48px] rounded-[24px] bg-[#F9FAFE] text-[#7E88C3] text-[15px] font-bold leading-[15px] tracking-[-0.25px] flex justify-center items-center py-[15px] px-[25px] ${
+            darkMode ? "bg-[#252945] " : ""
+          }`}
+        >
           Cancel
         </button>
         <button className="h-[48px] rounded-[24px] bg-[#7C5DFA] text-[#FFF] text-[15px] font-bold leading-[15px] tracking-[-0.25px] px-[15px]">

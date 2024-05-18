@@ -161,11 +161,13 @@ export default function AddInvoice({ darkMode }) {
       <AddInvoiceBtn darkMode={darkMode} />
 
       <div
-        className={`flex gap-[7px] mt-[21px] bg-white  sm:justify-between w-full h-[91px] items-center absolute left-0 justify-center ${
-          darkMode && window.innerWidth < 400 ? "bg-[#1E2139]" : "bg-[#141625]"
-        }`}
+        className={`flex gap-[7px] mt-[21px] bg-white 
+         sm:justify-between w-full h-[91px] items-center absolute left-0 justify-center
+         sm:px-[56px] ${darkMode ? "bg-[#141625]" : "bg-white"} 
+        }
+         `}
       >
-        <Discard />
+        <Discard darkMode={darkMode} />
         <div className="flex gap-[7px]">
           <SaveAsDraft darkMode={darkMode} />
           <SaveSend darkMode={darkMode} />

@@ -20,7 +20,7 @@ function App() {
 
         <AddInvoice darkMode={darkMode} />
 
-        <EditInvoice />
+        <EditInvoice darkMode={darkMode} />
       </div>
     </div>
   );
