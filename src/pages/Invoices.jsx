@@ -9,7 +9,7 @@ export default function Invoices() {
     let typesCopy = [...checkedTypes];
     if (typesCopy.includes(status.toLowerCase())) {
       typesCopy = typesCopy.filter((checkedType) => {
-        return checkedType.toLowerCase() === status.toLowerCase();
+        return checkedType.toLowerCase() !== status.toLowerCase();
       });
     } else {
       typesCopy = [...checkedTypes, status.toLowerCase()];
@@ -62,7 +62,7 @@ export default function Invoices() {
                 </svg>
               </h2>
               <div
-                className={`box flex absolute z-10 top-40  justify-start flex-col items-start w-[192px] h-[128px] rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_20px_0px_rgba(72,_84,_159,_0.25)] transition-all duration-500 ease-out ${
+                className={`box flex absolute z-[60] top-40  justify-start flex-col items-start w-[192px] h-[128px] rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_20px_0px_rgba(72,_84,_159,_0.25)] transition-all duration-500 ease-out ${
                   isOpen
                     ? "opacity-100 pointer-events-auto translate-y-0"
                     : "opacity-0 pointer-events-none translate-y-8"

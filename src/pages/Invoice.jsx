@@ -6,6 +6,7 @@ import data from "../data.json";
 
 function Invoice() {
   const params = useParams();
+  console.log(params);
 
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 640);
 
