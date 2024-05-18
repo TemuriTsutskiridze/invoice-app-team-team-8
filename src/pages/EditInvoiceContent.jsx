@@ -1,31 +1,16 @@
-import { space } from "postcss/lib/list";
-import React, { useEffect, useState } from "react";
-import CountryInput from "../components/CountryInput";
-import PostCodeInput from "../components/PostCodeInput";
-import CityInput from "../components/CityInput";
+import React from "react";
 import StreetAdress from "../components/StreetAdress";
+import PostCodeInput from "../components/PostCodeInput";
+import CountryInput from "../components/CountryInput";
+import ItemList from "../components/ItemList";
+import CityInput from "../components/CityInput";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
-import ItemList from "../components/ItemList";
-import AddInvoiceBtn from "../components/AddItemBtn";
-import Discard from "../components/Discard";
-import SaveAsDraft from "../components/SaveAsDraft";
-import SaveSend from "../components/SaveSend";
-export default function AddInvoice() {
+import { useState } from "react";
+export default function CreateInvoiceContent() {
   const [rotate, setRotate] = useState(false);
   return (
     <div>
-      <div className="flex flex-col gap-[22px] mt-[26px]">
-        <div className="flex">
-          <h2 className="text-[24px] font-bold leading-[32px] inline">
-            New Invoice
-          </h2>
-        </div>
-
-        <span className="text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-[#7C5DFA]">
-          Bill From
-        </span>
-      </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <StreetAdress />
         <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
@@ -122,16 +107,6 @@ export default function AddInvoice() {
         <div className="flex flex-col gap-[50px] md:gap-[18px] lg:gap-[18px]">
           <ItemList />
           <ItemList />
-        </div>
-      </div>
-
-      <AddInvoiceBtn />
-
-      <div className="flex gap-[7px] mt-[21px] bg-white  sm:justify-between w-full">
-        <Discard />
-        <div className="flex gap-[7px]">
-          <SaveAsDraft />
-          <SaveSend />
         </div>
       </div>
     </div>
