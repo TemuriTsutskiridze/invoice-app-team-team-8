@@ -14,9 +14,9 @@ export default function Card({ invoice }) {
   }
   console.log(invoice);
   return (
-    <div className="container w-full flex justify-center items-center py-[16px] px-[30px]">
+    <div className="container w-full flex justify-center items-center py-[16px] px-[30px] ">
       <div
-        className="cards  flex flex-row justify-between items-center rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_10px_-10px_rgba(72,_84,_159,_0.10)] w-[730px]
+        className="cards capitalize  flex flex-row justify-between items-center rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_10px_-10px_rgba(72,_84,_159,_0.10)] w-[730px]
         h-[72px]">
         <span className="text-[#000000] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px] tracking-[-0.25px]">
           <span className="text-[#7E88C3]">#</span>
@@ -52,7 +52,7 @@ export default function Card({ invoice }) {
               height="10"
               viewBox="0 0 7 10"
               fill="none">
-              <path d="M1 1L5 5L1 9" stroke="#7C5DFA" stroke-width="2" />
+              <path d="M1 1L5 5L1 9" stroke="#7C5DFA" strokeWidth="2" />
             </svg>
           </Link>
         </div>
