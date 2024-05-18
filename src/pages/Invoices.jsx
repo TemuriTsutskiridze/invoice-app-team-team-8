@@ -2,8 +2,29 @@ import data from "../data.json";
 import Card from "../Components/Card";
 import { useState } from "react";
 export default function Invoices() {
-  console.log(data);
+  const [dataCopy, setDataCopy] = useState(data);
   const [isOpen, setIsOpen] = useState(false);
+  const [checkedTypes, setCheckedTypes] = useState([]);
+  function filterData(status) {
+    let typesCopy = [...checkedTypes];
+    if (typesCopy.includes(status.toLowerCase())) {
+      typesCopy = typesCopy.filter((checkedType) => {
+        return checkedType.toLowerCase() === status.toLowerCase();
+      });
+    } else {
+      typesCopy = [...checkedTypes, status.toLowerCase()];
+    }
+    setCheckedTypes(typesCopy);
+    if (typesCopy.length === 0) {
+      setDataCopy(data);
+    } else {
+      const filteredData = [...data].filter((invoice) => {
+        return typesCopy.includes(invoice.status);
+      });
+      setDataCopy(filteredData);
+    }
+    console.log(typesCopy);
+  }
   return (
     <div className="flex justify-center items-center mt-[100px]">
       <div className="container flex flex-col justify-center items-center w-[730px]">
@@ -47,30 +68,51 @@ export default function Invoices() {
                     : "opacity-0 pointer-events-none translate-y-8"
                 }`}>
                 <div className="Draft flex flex-col  justify-center items-start gap-3  h-full">
-                  <div className="draft flex flex-row gap-3  px-[24px]">
+                  <div
+                    className="draft flex flex-row gap-3  px-[24px]"
+                    onClick={() => {
+                      filterData("draft");
+                    }}>
                     <input
+                      id="draft"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
                     />
-                    <label className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                    <label
+                      htmlFor="draft"
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
                       Draft{" "}
                     </label>
                   </div>
-                  <div className="draft flex flex-row gap-3  px-[24px]">
+                  <div
+                    className="draft flex flex-row gap-3  px-[24px]"
+                    onChange={() => {
+                      filterData("pending");
+                    }}>
                     <input
+                      id="pending"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
                     />
-                    <label className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                    <label
+                      htmlFor="pending"
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
                       Pending{" "}
                     </label>
                   </div>
-                  <div className="draft flex  items-center flex-row gap-3  px-[24px]">
+                  <div
+                    className="draft flex  items-center flex-row gap-3  px-[24px]"
+                    onChange={() => {
+                      filterData("paid");
+                    }}>
                     <input
+                      id="paid"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
                     />
-                    <label className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                    <label
+                      htmlFor="paid"
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
                       Paid{" "}
                     </label>
                   </div>
@@ -96,7 +138,7 @@ export default function Invoices() {
           </div>
         </div>
         <div className="div flex w-full justify-center items-center flex-wrap gap-[5px]">
-          {data.map((id, idx) => {
+          {dataCopy.map((id, idx) => {
             return <Card key={idx} invoice={id} />;
           })}
         </div>

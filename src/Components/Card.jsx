@@ -12,7 +12,6 @@ export default function Card({ invoice }) {
       return "#373B53";
     }
   }
-  console.log(invoice);
   return (
     <div className="container w-full flex justify-center items-center py-[16px] px-[30px] ">
       <div

@@ -12,7 +12,6 @@ function Invoice() {
   const invoiceById = data.find((invoice) => {
     return invoice.id === params.id;
   });
-  console.log(invoiceById);
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 640);
