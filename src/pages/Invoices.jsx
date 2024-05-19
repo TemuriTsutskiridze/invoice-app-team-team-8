@@ -39,6 +39,18 @@ export default function Invoices() {
     console.log(typesCopy);
   }
 
+  function countInvoices(status){
+    if(dataCopy){
+      const filteredArray = data.filter(invoice =>{
+        return invoice.status.name.toLowerCase() === status.toLowerCase()
+      })
+      return filteredArray.length
+    }
+  
+  }  
+
+
+
   return (
     <div className="flex justify-center items-center mt-[100px]">
       <div className="container flex flex-col justify-center items-center w-[730px]">
@@ -82,15 +94,14 @@ export default function Invoices() {
                     : "opacity-0 pointer-events-none translate-y-8"
                 }`}>
                 <div className="Draft flex flex-col  justify-center items-start gap-3  h-full">
-                  <div
-                    className="draft flex flex-row gap-3  px-[24px]"
-                    onClick={() => {
-                      filterData("draft");
-                    }}>
+                  <div className="draft flex flex-row gap-3  px-[24px]">
                     <input
                       id="draft"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("draft");
+                      }}
                     />
                     <label
                       htmlFor="draft"
@@ -98,15 +109,14 @@ export default function Invoices() {
                       Draft{" "}
                     </label>
                   </div>
-                  <div
-                    className="draft flex flex-row gap-3  px-[24px]"
-                    onChange={() => {
-                      filterData("pending");
-                    }}>
+                  <div className="draft flex flex-row gap-3  px-[24px]">
                     <input
                       id="pending"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("pending");
+                      }}
                     />
                     <label
                       htmlFor="pending"
@@ -114,15 +124,14 @@ export default function Invoices() {
                       Pending{" "}
                     </label>
                   </div>
-                  <div
-                    className="draft flex  items-center flex-row gap-3  px-[24px]"
-                    onChange={() => {
-                      filterData("paid");
-                    }}>
+                  <div className="draft flex  items-center flex-row gap-3  px-[24px]">
                     <input
                       id="paid"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("paid");
+                      }}
                     />
                     <label
                       htmlFor="paid"
