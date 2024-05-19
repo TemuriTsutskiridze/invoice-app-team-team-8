@@ -1,10 +1,23 @@
-import data from "../data.json";
 import Card from "../Components/Card";
 import { useState } from "react";
+import { useEffect } from "react";
 export default function Invoices() {
-  const [dataCopy, setDataCopy] = useState(data);
+  const [dataCopy, setDataCopy] = useState([]);
+  const [data, setData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [checkedTypes, setCheckedTypes] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        "https://invoice-api-team-8.onrender.com/api/invoice"
+      );
+      const responseData = await response.json();
+      setDataCopy(responseData);
+      setData(responseData);
+    }
+
+    fetchData();
+  }, []);
   function filterData(status) {
     let typesCopy = [...checkedTypes];
     if (typesCopy.includes(status.toLowerCase())) {
@@ -19,12 +32,13 @@ export default function Invoices() {
       setDataCopy(data);
     } else {
       const filteredData = [...data].filter((invoice) => {
-        return typesCopy.includes(invoice.status);
+        return typesCopy.includes(invoice.status.name.toLowerCase());
       });
       setDataCopy(filteredData);
     }
     console.log(typesCopy);
   }
+
   return (
     <div className="flex justify-center items-center mt-[100px]">
       <div className="container flex flex-col justify-center items-center w-[730px]">

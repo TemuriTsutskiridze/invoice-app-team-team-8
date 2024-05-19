@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 export default function Card({ invoice }) {
   function checkStatus() {
-    if (invoice.status === "pending") {
+    if (invoice.status.name.toLowerCase() === "pending") {
       return "#FF8F00";
-    } else if (invoice.status === "paid") {
+    } else if (invoice.status.name.toLowerCase() === "paid") {
       return "#33D69F";
     } else {
       return "#373B53";
@@ -41,7 +41,7 @@ export default function Card({ invoice }) {
               <div
                 className={`div translate-y-0.5 h-[8px] w-[8px]  rounded-full `}
                 style={{ backgroundColor: checkStatus() }}></div>
-              <span className={``}>{invoice.status}</span>
+              <span className={``}>{invoice.status.name}</span>
             </li>
           </ul>
           <Link to={`/invoices/${invoice.id}`}>
