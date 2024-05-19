@@ -39,17 +39,24 @@ export default function Invoices() {
     console.log(typesCopy);
   }
 
-  function countInvoices(status){
-    if(dataCopy){
-      const filteredArray = data.filter(invoice =>{
-        return invoice.status.name.toLowerCase() === status.toLowerCase()
-      })
-      return filteredArray.length
+  function countInvoices(status) {
+    if (dataCopy) {
+      const filteredArray = data.filter((invoice) => {
+        return invoice.status.name.toLowerCase() === status.toLowerCase();
+      });
+      return filteredArray.length;
     }
-  
-  }  
+  }
 
-
+  function returnInvoiceCountString() {
+    if (checkedTypes.length === 0 || checkedTypes.length > 1) {
+      return `There are ${data.length} total invoices`;
+    } else {
+      return `There are ${countInvoices(checkedTypes[0])} ${
+        checkedTypes[0]
+      } pending invoices`;
+    }
+  }
 
   return (
     <div className="flex justify-center items-center mt-[100px]">
@@ -59,7 +66,7 @@ export default function Invoices() {
             <h2 className="text-[#0C0E16] font-[League_Spartan] text-[36px] not-italic font-bold leading-[normal] tracking-[-1.125px] flex flex-col">
               Invoices{" "}
               <span className="text-[#888EB0] font-[League_Spartan] text-[13px] not-italic font-medium leading-[15px]">
-                There are 7 total invoices
+                {returnInvoiceCountString()}
               </span>
             </h2>
           </div>
