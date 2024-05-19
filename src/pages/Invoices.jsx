@@ -1,6 +1,7 @@
 import Card from "../Components/Card";
 import { useState } from "react";
 import { useEffect } from "react";
+import Emptyinvoices from "../Components/Emptyinvoices";
 export default function Invoices() {
   const [dataCopy, setDataCopy] = useState([]);
   const [data, setData] = useState([]);
@@ -168,9 +169,13 @@ export default function Invoices() {
           </div>
         </div>
         <div className="div flex w-full justify-center items-center flex-wrap gap-[5px]">
-          {dataCopy.map((id, idx) => {
-            return <Card key={idx} invoice={id} />;
-          })}
+          {dataCopy.length === 0 ? (
+            <Emptyinvoices />
+          ) : (
+            dataCopy.map((id, idx) => {
+              return <Card key={idx} invoice={id} />;
+            })
+          )}
         </div>
       </div>
     </div>
