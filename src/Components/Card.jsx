@@ -13,10 +13,10 @@ export default function Card({ invoice }) {
     }
   }
   return (
-    <div className="container w-full flex justify-center items-center py-[16px] px-[30px] ">
+    <div className="container w-full flex justify-center items-center py-[16px] px-[30px] max-sm:hidden ">
       <div
         className="cards capitalize  flex flex-row justify-between items-center rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_10px_-10px_rgba(72,_84,_159,_0.10)] w-[730px]
-        h-[72px]">
+        h-[72px] max-sm:flex-vid max-sm:w-full max-sm:justify-   ">
         <span className="text-[#000000] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px] tracking-[-0.25px]">
           <span className="text-[#7E88C3]">#</span>
           {invoice.id}

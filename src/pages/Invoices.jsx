@@ -1,4 +1,5 @@
 import Card from "../Components/Card";
+import CardMobile from "../Components/CardMobile";
 import { useState } from "react";
 import { useEffect } from "react";
 import Emptyinvoices from "../Components/Emptyinvoices";
@@ -168,12 +169,17 @@ export default function Invoices() {
             </button>
           </div>
         </div>
-        <div className="div flex w-full justify-center items-center flex-wrap gap-[5px]">
+        <div className="div flex flex-col w-full justify-between items-center  gap-[5px]">
           {dataCopy.length === 0 ? (
             <Emptyinvoices />
           ) : (
             dataCopy.map((id, idx) => {
-              return <Card key={idx} invoice={id} />;
+              return (
+                <div key={idx}>
+                  <Card invoice={id} />
+                  <CardMobile invoice={id} />
+                </div>
+              );
             })
           )}
         </div>
