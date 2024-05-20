@@ -163,7 +163,7 @@ export default function AddInvoice({ darkMode }) {
       <div
         className={`flex gap-[7px] mt-[21px] bg-white 
          sm:justify-between w-full h-[91px] items-center absolute left-0 justify-center
-         sm:px-[56px] ${darkMode ? "bg-[#141625]" : "bg-white"} 
+         sm:px-[56px] sm:w-[50%] ${darkMode ? "bg-[#141625]" : "bg-white"} 
         }
          `}
       >

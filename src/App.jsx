@@ -14,13 +14,14 @@ function App() {
   }
   return (
     <div className={darkMode ? "bg-[#141625]" : ""}>
-      <Header darkMode={darkMode} setMode={setMode} />
-      <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px]">
-        <GoBack darkMode={darkMode} />
+      <div className={`lg:flex  `}>
+        <Header darkMode={darkMode} setMode={setMode} />
+        <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px] ">
+          <GoBack darkMode={darkMode} />
+          <AddInvoice darkMode={darkMode} />
+        </div>
 
-        <AddInvoice darkMode={darkMode} />
-
-        <EditInvoice darkMode={darkMode} />
+        {/* <EditInvoice darkMode={darkMode} /> */}
       </div>
     </div>
   );

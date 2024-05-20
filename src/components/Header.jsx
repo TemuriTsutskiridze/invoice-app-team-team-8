@@ -1,12 +1,26 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "/assets/image-avatar.jpg";
 import Moon from "/assets/icon-moon.svg";
 import Sun from "/assets/icon-sun.svg";
+
 export default function Header({ darkMode, setMode }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
-    <>
+    <div>
       <svg
-        className="absolute rounded-br-[15px]"
+        className="absolute rounded-br-[15px] "
         xmlns="http://www.w3.org/2000/svg"
         width="72"
         height="72"
@@ -31,24 +45,33 @@ export default function Header({ darkMode, setMode }) {
           fill="white"
         />
       </svg>
-      <header className="h-[72px] bg-[#373B53] flex w-full  justify-end items-center ">
-        <div className="cursor-pointer" onClick={() => setMode()}>
-          <img
-            src={darkMode ? Sun : Moon}
-            alt="moon"
-            className="mr-[24px] cursor-pointer"
-          />
-        </div>
+      <header
+        className={`h-[72px] bg-[#373B53] flex w-full  justify-end items-center  ${
+          window.innerWidth > 1000
+            ? " h-full  w-[103px]  flex-col items-start justif"
+            : ""
+        } `}
+      >
+        <div></div>
+        <div className="flex items-center  justify-center lg:flex-col lg:">
+          <div className="cursor-pointer" onClick={() => setMode()}>
+            <img
+              src={darkMode ? Sun : Moon}
+              alt="moon"
+              className="mr-[24px] cursor-pointer"
+            />
+          </div>
 
-        <div className="h-full  bg-[#494E6E] w-[1px]"></div>
-        <div className="  flex justify-center items-center w-[80px] h-full">
-          <img
-            src={Avatar}
-            alt="avatar"
-            className="w-[32px] h-[32px] rounded-[32px]"
-          />
+          <div className="h-full  bg-[#494E6E] w-[1px] lg:h-[1px]  "></div>
+          <div className="  flex justify-center items-center w-[80px] h-full">
+            <img
+              src={Avatar}
+              alt="avatar"
+              className="w-[32px] h-[32px] rounded-[32px]"
+            />
+          </div>
         </div>
       </header>
-    </>
+    </div>
   );
 }
