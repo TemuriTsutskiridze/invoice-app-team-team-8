@@ -1,6 +1,5 @@
 import Card from "../Components/Card";
-import AddInvoice from "./AddInvoice";
-import CardMobile from "./Components/CardMobile";
+import CardMobile from "../Components/CardMobile";
 import { useState } from "react";
 import { useEffect } from "react";
 import Emptyinvoices from "../Components/Emptyinvoices";
@@ -185,7 +184,6 @@ export default function Invoices() {
           )}
         </div>
       </div>
-      <AddInvoice />
     </div>
   );
 }
