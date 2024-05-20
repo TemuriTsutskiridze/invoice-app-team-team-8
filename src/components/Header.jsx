@@ -18,7 +18,7 @@ export default function Header({ darkMode, setMode }) {
     };
   }, []);
   return (
-    <div>
+    <div className="lg:fixed lg:h-full z-[999] ">
       <svg
         className="absolute rounded-br-[15px] "
         xmlns="http://www.w3.org/2000/svg"
@@ -47,23 +47,26 @@ export default function Header({ darkMode, setMode }) {
       </svg>
       <header
         className={`h-[72px] bg-[#373B53] flex w-full  justify-end items-center  ${
-          window.innerWidth > 1000
-            ? " h-full  w-[103px]  flex-col items-start justif"
+          window.innerWidth > 1024
+            ? " h-full  w-[103px]  flex-col items-start  rounded-tl-none rounded-br-[20px] rounded-tr-[20px] rounded-bl-none"
             : ""
         } `}
       >
         <div></div>
-        <div className="flex items-center  justify-center lg:flex-col lg:">
-          <div className="cursor-pointer" onClick={() => setMode()}>
+        <div className="flex items-center  justify-center lg:flex-col lg:w-full lg:gap-[50px]">
+          <div
+            className="cursor-pointer lg:w-full lg:flex lg:justify-center "
+            onClick={() => setMode()}
+          >
             <img
               src={darkMode ? Sun : Moon}
               alt="moon"
-              className="mr-[24px] cursor-pointer"
+              className="mr-[24px] cursor-pointer lg:mr-0"
             />
           </div>
 
-          <div className="h-full  bg-[#494E6E] w-[1px] lg:h-[1px]  "></div>
-          <div className="  flex justify-center items-center w-[80px] h-full">
+          <div className="h-[70px] w-[1px]  lg:w-full lg:h-[1px] bg-[#494E6E] "></div>
+          <div className="  flex justify-center items-center w-[80px] h-full lg:mb-[24px]">
             <img
               src={Avatar}
               alt="avatar"
