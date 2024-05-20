@@ -27,7 +27,7 @@ export default function AddInvoice({ darkMode }) {
     };
   }, []);
   return (
-    <div className="">
+    <div className="lg:w-[617px]">
       <div className="flex flex-col gap-[22px] mt-[26px]">
         <div className="flex">
           <h2
@@ -87,8 +87,8 @@ export default function AddInvoice({ darkMode }) {
             }   `}
           />
         </label>
-        <div className="flex flex-col gap-[45px] sm:flex-row">
-          <div className="flex w-[full] gap-[16px] sm:gap-[20px]">
+        <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
+          <div className="flex gap-[16px] sm:gap-[20px] w-full">
             <CityInput darkMode={darkMode} />
             <PostCodeInput darkMode={darkMode} />
           </div>
@@ -105,7 +105,7 @@ export default function AddInvoice({ darkMode }) {
             <img
               src={Calendar}
               alt="calendar logo "
-              className="z-[2] absolute right-[35px]"
+              className="z-[2] absolute right-[35px] lg:left-[712px] sm:left-[565px]"
             />
             <input
               type="date"
@@ -149,7 +149,7 @@ export default function AddInvoice({ darkMode }) {
         </label>
       </form>
       <div>
-        <h2 className="text-[#7E88C3] text-[18px] mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
+        <h2 className="text-[#7E88C3] text-[18px]  mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
           Item List
         </h2>
         <div className="flex flex-col gap-[50px] md:gap-[18px] lg:gap-[18px]">
@@ -161,9 +161,9 @@ export default function AddInvoice({ darkMode }) {
       <AddInvoiceBtn darkMode={darkMode} />
 
       <div
-        className={`flex gap-[7px] mt-[21px] bg-white 
-         sm:justify-between w-full h-[91px] items-center absolute left-0 justify-center
-         sm:px-[56px] sm:w-[50%] ${darkMode ? "bg-[#141625]" : "bg-white"} 
+        className={`flex gap-[7px] mt-[21px]  w-full
+         sm:justify-between  h-[91px] items-center  justify-center lg:pl-[100px]
+         sm:px-[56px]  lg:w-[619px] sm:w-[616px] ${darkMode && "bg-[#141625]"}
         }
          `}
       >

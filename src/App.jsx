@@ -13,10 +13,10 @@ function App() {
     setDarkMode(!darkMode);
   }
   return (
-    <div className={darkMode ? "bg-[#141625]" : ""}>
-      <div className={`lg:flex  `}>
+    <div className={darkMode ? "bg-[#141625]" : "bg-white"}>
+      <div className={`lg:flex`}>
         <Header darkMode={darkMode} setMode={setMode} />
-        <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px] ">
+        <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px] lg:ml-[100px] sm:w-[616px]">
           <GoBack darkMode={darkMode} />
           <AddInvoice darkMode={darkMode} />
         </div>
