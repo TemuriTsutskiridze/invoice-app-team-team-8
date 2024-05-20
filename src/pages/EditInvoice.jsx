@@ -42,8 +42,8 @@ export default function EditInvoice({ darkMode }) {
       </div>
 
       <div
-        className={`flex gap-[7px] mt-[21px] bg-white   w-full h-[91px] items-center absolute left-0 justify-end  sm:px-[56px] ${
-          darkMode ? "bg-[#1E2139]" : "bg-white"
+        className={`flex gap-[7px] mt-[50px]   h-[91px] items-center  justify-end  sm:px-[56px] ${
+          darkMode ? "bg-[#141625]" : ""
         }`}
       >
         <button

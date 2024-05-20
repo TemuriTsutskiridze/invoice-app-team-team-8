@@ -19,6 +19,7 @@ function App() {
         <div className="px-[24px] mt-[33px] pb-[22px] sm:pb-[32px] lg:ml-[100px] sm:w-[616px]">
           <GoBack darkMode={darkMode} />
           <AddInvoice darkMode={darkMode} />
+          <EditInvoice darkMode={darkMode} />
         </div>
 
         {/* <EditInvoice darkMode={darkMode} /> */}

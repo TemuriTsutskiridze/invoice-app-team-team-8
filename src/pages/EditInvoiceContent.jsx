@@ -23,7 +23,22 @@ export default function CreateInvoiceContent({ darkMode }) {
     };
   }, []);
   return (
-    <div>
+    <div className="lg:w-[617px]">
+      <div className="flex flex-col gap-[22px] mt-[26px]">
+        <div className="flex">
+          <h2
+            className={`text-[24px] font-bold leading-[32px] inline ${
+              darkMode ? "text-white" : ""
+            }`}
+          >
+            New Invoice
+          </h2>
+        </div>
+
+        <span className="text-[15px] font-bold leading-[15px] tracking-[-0.25px] text-[#7C5DFA]">
+          Bill From
+        </span>
+      </div>
       <form className="mt-[24px] flex flex-col gap-[45px]">
         <StreetAdress darkMode={darkMode} />
         <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
@@ -68,8 +83,8 @@ export default function CreateInvoiceContent({ darkMode }) {
             }   `}
           />
         </label>
-        <div className="flex flex-col gap-[45px] sm:flex-row">
-          <div className="flex w-[full] gap-[16px] sm:gap-[20px]">
+        <div className="flex flex-col gap-[45px] sm:flex-row sm:gap-[24px]">
+          <div className="flex gap-[16px] sm:gap-[20px] w-full">
             <CityInput darkMode={darkMode} />
             <PostCodeInput darkMode={darkMode} />
           </div>
@@ -86,7 +101,7 @@ export default function CreateInvoiceContent({ darkMode }) {
             <img
               src={Calendar}
               alt="calendar logo "
-              className="z-[2] absolute right-[35px]"
+              className="z-[2] absolute right-[35px] lg:left-[712px] sm:left-[565px]"
             />
             <input
               type="date"
@@ -130,7 +145,7 @@ export default function CreateInvoiceContent({ darkMode }) {
         </label>
       </form>
       <div>
-        <h2 className="text-[#7E88C3] text-[18px] mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
+        <h2 className="text-[#7E88C3] text-[18px]  mt-[126px] font-bold leading-[32px] tracking-[-0.375px]">
           Item List
         </h2>
         <div className="flex flex-col gap-[50px] md:gap-[18px] lg:gap-[18px]">
