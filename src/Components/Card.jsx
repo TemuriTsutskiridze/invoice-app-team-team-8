@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 export default function Card({ invoice }) {
   function checkStatus() {
-    if (invoice.status === "pending") {
+    if (invoice.status.name.toLowerCase() === "pending") {
       return "#FF8F00";
-    } else if (invoice.status === "paid") {
+    } else if (invoice.status.name.toLowerCase() === "paid") {
       return "#33D69F";
     } else {
       return "#373B53";
     }
   }
   return (
-    <div className="container w-full flex justify-center items-center py-[16px] px-[30px] ">
+    <div className="container w-full flex justify-center items-center py-[16px] px-[30px] max-sm:hidden ">
       <div
         className="cards capitalize  flex flex-row justify-between items-center rounded-[8px] bg-[#FFF] [box-shadow:0px_10px_10px_-10px_rgba(72,_84,_159,_0.10)] w-[730px]
-        h-[72px]">
+        h-[72px] max-sm:flex-vid max-sm:w-full max-sm:justify-   ">
         <span className="text-[#000000] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px] tracking-[-0.25px]">
           <span className="text-[#7E88C3]">#</span>
           {invoice.id}
@@ -41,7 +41,7 @@ export default function Card({ invoice }) {
               <div
                 className={`div translate-y-0.5 h-[8px] w-[8px]  rounded-full `}
                 style={{ backgroundColor: checkStatus() }}></div>
-              <span className={``}>{invoice.status}</span>
+              <span className={``}>{invoice.status.name}</span>
             </li>
           </ul>
           <Link to={`/invoices/${invoice.id}`}>
