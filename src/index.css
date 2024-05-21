@@ -4,8 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+
+  color: transparent;
+  cursor: pointer;
+  left: 10px;
+  z-index: 999;
+}
+
+
