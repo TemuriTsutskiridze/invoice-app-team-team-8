@@ -1,10 +1,25 @@
-import data from "../data.json";
 import Card from "../Components/Card";
+import CardMobile from "../Components/CardMobile";
 import { useState } from "react";
+import { useEffect } from "react";
+import Emptyinvoices from "../Components/Emptyinvoices";
 export default function Invoices() {
-  const [dataCopy, setDataCopy] = useState(data);
+  const [dataCopy, setDataCopy] = useState([]);
+  const [data, setData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [checkedTypes, setCheckedTypes] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        "https://invoice-api-team-8.onrender.com/api/invoice"
+      );
+      const responseData = await response.json();
+      setDataCopy(responseData);
+      setData(responseData);
+    }
+
+    fetchData();
+  }, []);
   function filterData(status) {
     let typesCopy = [...checkedTypes];
     if (typesCopy.includes(status.toLowerCase())) {
@@ -19,12 +34,32 @@ export default function Invoices() {
       setDataCopy(data);
     } else {
       const filteredData = [...data].filter((invoice) => {
-        return typesCopy.includes(invoice.status);
+        return typesCopy.includes(invoice.status.name.toLowerCase());
       });
       setDataCopy(filteredData);
     }
     console.log(typesCopy);
   }
+
+  function countInvoices(status) {
+    if (dataCopy) {
+      const filteredArray = data.filter((invoice) => {
+        return invoice.status.name.toLowerCase() === status.toLowerCase();
+      });
+      return filteredArray.length;
+    }
+  }
+
+  function returnInvoiceCountString() {
+    if (checkedTypes.length === 0 || checkedTypes.length > 1) {
+      return `There are ${data.length} total invoices`;
+    } else {
+      return `There are ${countInvoices(checkedTypes[0])} ${
+        checkedTypes[0]
+      } pending invoices`;
+    }
+  }
+
   return (
     <div className="flex justify-center items-center mt-[100px]">
       <div className="container flex flex-col justify-center items-center w-[730px]">
@@ -33,7 +68,7 @@ export default function Invoices() {
             <h2 className="text-[#0C0E16] font-[League_Spartan] text-[36px] not-italic font-bold leading-[normal] tracking-[-1.125px] flex flex-col">
               Invoices{" "}
               <span className="text-[#888EB0] font-[League_Spartan] text-[13px] not-italic font-medium leading-[15px]">
-                There are 7 total invoices
+                {returnInvoiceCountString()}
               </span>
             </h2>
           </div>
@@ -68,15 +103,14 @@ export default function Invoices() {
                     : "opacity-0 pointer-events-none translate-y-8"
                 }`}>
                 <div className="Draft flex flex-col  justify-center items-start gap-3  h-full">
-                  <div
-                    className="draft flex flex-row gap-3  px-[24px]"
-                    onClick={() => {
-                      filterData("draft");
-                    }}>
+                  <div className="draft flex flex-row gap-3  px-[24px]">
                     <input
                       id="draft"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("draft");
+                      }}
                     />
                     <label
                       htmlFor="draft"
@@ -84,15 +118,14 @@ export default function Invoices() {
                       Draft{" "}
                     </label>
                   </div>
-                  <div
-                    className="draft flex flex-row gap-3  px-[24px]"
-                    onChange={() => {
-                      filterData("pending");
-                    }}>
+                  <div className="draft flex flex-row gap-3  px-[24px]">
                     <input
                       id="pending"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("pending");
+                      }}
                     />
                     <label
                       htmlFor="pending"
@@ -100,15 +133,14 @@ export default function Invoices() {
                       Pending{" "}
                     </label>
                   </div>
-                  <div
-                    className="draft flex  items-center flex-row gap-3  px-[24px]"
-                    onChange={() => {
-                      filterData("paid");
-                    }}>
+                  <div className="draft flex  items-center flex-row gap-3  px-[24px]">
                     <input
                       id="paid"
                       className="rounded-[2px] border-[1px] border-[solid] border-[var(--01,#7C5DFA)] bg-[var(--05,_#DFE3FA)]"
                       type="checkbox"
+                      onChange={() => {
+                        filterData("paid");
+                      }}
                     />
                     <label
                       htmlFor="paid"
@@ -137,10 +169,19 @@ export default function Invoices() {
             </button>
           </div>
         </div>
-        <div className="div flex w-full justify-center items-center flex-wrap gap-[5px]">
-          {dataCopy.map((id, idx) => {
-            return <Card key={idx} invoice={id} />;
-          })}
+        <div className="div flex flex-col w-full justify-between items-center  gap-[5px]">
+          {dataCopy.length === 0 ? (
+            <Emptyinvoices />
+          ) : (
+            dataCopy.map((id, idx) => {
+              return (
+                <div key={idx}>
+                  <Card invoice={id} />
+                  <CardMobile invoice={id} />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </div>
