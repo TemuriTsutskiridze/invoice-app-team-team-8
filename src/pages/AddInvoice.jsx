@@ -440,3 +440,4 @@ export default function AddInvoice({ darkMode, addOpen, setAddOpen }) {
     </div>
   );
 }
+
