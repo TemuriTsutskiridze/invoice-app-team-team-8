@@ -60,3 +60,4 @@ export default function EditInvoice({ darkMode }) {
     </div>
   );
 }
+
