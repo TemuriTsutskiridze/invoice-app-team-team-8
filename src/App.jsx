@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "./components/Header";
-import GoBack from "./components/GoBack";
+import Header from "./Components/Header";
+import GoBack from "./Components/GoBack";
 import AddInvoice from "./pages/AddInvoice";
 import EditInvoice from "./pages/EditInvoice";
 import Moon from "/assets/icon-moon.svg";
@@ -36,4 +36,3 @@ function App() {
 }
 
 export default App;
-

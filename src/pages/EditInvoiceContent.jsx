@@ -1,9 +1,9 @@
 import React from "react";
-import StreetAdress from "../components/StreetAdress";
-import PostCodeInput from "../components/PostCodeInput";
-import CountryInput from "../components/CountryInput";
-import ItemList from "../components/ItemList";
-import CityInput from "../components/CityInput";
+import StreetAdress from "../Components/StreetAdress";
+import PostCodeInput from "../Components/PostCodeInput";
+import CountryInput from "../Components/CountryInput";
+import ItemList from "../Components/ItemList";
+import CityInput from "../Components/CityInput";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
 
@@ -381,4 +381,3 @@ export default function CreateInvoiceContent({ darkMode }) {
     </div>
   );
 }
-

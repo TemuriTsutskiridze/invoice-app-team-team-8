@@ -1,8 +1,8 @@
-import Card from "../components/Card";
-import CardMobile from "../components/CardMobile";
+import Card from "../Components/Card";
+import CardMobile from "../Components/CardMobile";
 import { useState } from "react";
 import { useEffect } from "react";
-import Emptyinvoices from "../components/Emptyinvoices";
+import Emptyinvoices from "../Components/Emptyinvoices";
 import AddInvoice from "./AddInvoice";
 export default function Invoices({ darkMode }) {
   const [dataCopy, setDataCopy] = useState([]);
@@ -223,4 +223,3 @@ export default function Invoices({ darkMode }) {
     </div>
   );
 }
-

@@ -1,5 +1,5 @@
 import EditInvoiceContent from "./EditInvoiceContent";
-import AddItemBtn from "../components/AddItemBtn";
+import AddItemBtn from "../Components/AddItemBtn";
 import { useState, useEffect } from "react";
 export default function EditInvoice({ darkMode }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -60,4 +60,3 @@ export default function EditInvoice({ darkMode }) {
     </div>
   );
 }
-

@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import Calendar from "/assets/icon-calendar.svg";
 import ArrowDown from "/assets/icon-arrow-down.svg";
 
-import AddItemBtn from "../components/AddItemBtn";
-import Discard from "../components/Discard";
-import SaveAsDraft from "../components/SaveAsDraft";
-import SaveSend from "../components/SaveSend";
+import AddItemBtn from "../Components/AddItemBtn";
+import Discard from "../Components/Discard";
+import SaveAsDraft from "../Components/SaveAsDraft";
+import SaveSend from "../Components/SaveSend";
 
 import Bin from "/assets/icon-delete.svg";
 
@@ -440,4 +440,3 @@ export default function AddInvoice({ darkMode, addOpen, setAddOpen }) {
     </div>
   );
 }
-
