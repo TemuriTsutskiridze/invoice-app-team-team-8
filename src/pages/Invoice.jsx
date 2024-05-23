@@ -177,7 +177,7 @@ export default function Invoices() {
               <Emptyinvoices />
             ) : (
               dataCopy.map((id, idx) => {
-                return <Card key={idx} invoice={id} />;
+                // return <Card key={idx} invoice={id} />;
                 return (
                   <div key={idx}>
                     <Card invoice={id} />
