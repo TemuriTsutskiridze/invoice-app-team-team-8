@@ -74,7 +74,8 @@ export default function Invoices() {
                 className="flex flex-row cursor-pointer items-center justify-center gap-[14px] text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px] "
                 onClick={() => {
                   setIsOpen(!isOpen);
-                }}>
+                }}
+              >
                 Filter by status
                 <svg
                   className={`${
@@ -84,7 +85,8 @@ export default function Invoices() {
                   width="10"
                   height="7"
                   viewBox="0 0 10 7"
-                  fill="none">
+                  fill="none"
+                >
                   <path
                     d="M1 1L5.2279 5.2279L9.4558 1"
                     stroke="#7C5DFA"
@@ -97,7 +99,8 @@ export default function Invoices() {
                   isOpen
                     ? "opacity-100 pointer-events-auto translate-y-0"
                     : "opacity-0 pointer-events-none translate-y-8"
-                }`}>
+                }`}
+              >
                 <div className="Draft flex flex-col  justify-center items-start gap-3  h-full">
                   <div className="draft flex flex-row gap-3  px-[24px]">
                     <input
@@ -110,7 +113,8 @@ export default function Invoices() {
                     />
                     <label
                       htmlFor="draft"
-                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]"
+                    >
                       Draft{" "}
                     </label>
                   </div>
@@ -125,7 +129,8 @@ export default function Invoices() {
                     />
                     <label
                       htmlFor="pending"
-                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]"
+                    >
                       Pending{" "}
                     </label>
                   </div>
@@ -140,7 +145,8 @@ export default function Invoices() {
                     />
                     <label
                       htmlFor="paid"
-                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]">
+                      className="text-[#0C0E16] font-[League_Spartan] text-[15px] not-italic font-bold leading-[15px]"
+                    >
                       Paid{" "}
                     </label>
                   </div>
@@ -153,7 +159,8 @@ export default function Invoices() {
                 width="32"
                 height="32"
                 viewBox="0 0 32 32"
-                fill="none">
+                fill="none"
+              >
                 <circle cx="16" cy="16" r="16" fill="white" />
                 <path
                   d="M17.3131 21.0229V17.3131H21.0229V14.7328H17.3131V11.0229H14.7328V14.7328H11.0229V17.3131H14.7328V21.0229H17.3131Z"
@@ -165,21 +172,23 @@ export default function Invoices() {
           </div>
         </div>
         <div className="div flex w-full justify-center items-center flex-wrap gap-[5px]">
-        <div className="div flex flex-col w-full justify-between items-center  gap-[5px]">
-          {dataCopy.length === 0 ? (
-            <Emptyinvoices />
-          ) : (
-            dataCopy.map((id, idx) => {
-              return <Card key={idx} invoice={id} />;
-              return (
-                <div key={idx}>
-                  <Card invoice={id} />
-                  <CardMobile invoice={id} />
-                </div>
-              );
-            })
-          )}
+          <div className="div flex flex-col w-full justify-between items-center  gap-[5px]">
+            {dataCopy.length === 0 ? (
+              <Emptyinvoices />
+            ) : (
+              dataCopy.map((id, idx) => {
+                return <Card key={idx} invoice={id} />;
+                return (
+                  <div key={idx}>
+                    <Card invoice={id} />
+                    <CardMobile invoice={id} />
+                  </div>
+                );
+              })
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
+}
